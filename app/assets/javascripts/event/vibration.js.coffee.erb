@@ -27,7 +27,7 @@ window.VibrationLoop = VibrationLoop
 
 check_vibration_setting = () ->
   console.log 'check_vibration_setting'
-  json_url = 'http://192.168.100.109:3000/to_vibrate.json'
+  json_url = '/to_vibrate.json'
   f = ( obj ,c , jq_xhr) ->
     console.log obj
     if c is 'success' and obj.to_vibrate
