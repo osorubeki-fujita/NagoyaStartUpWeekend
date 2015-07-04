@@ -1,30 +1,30 @@
 = render "common_content"
 
 - content_for :right_contents do
-  - # = @twitter_processor.render
-
-- # = ::TokyoMetro::App::Renderer::Concerns::Header::Title.new( request , ::ApplicationHelper.common_title_ja , ::ApplicationHelper.common_title_en , domain_id_name: :top_title ).render
-
-- # %p<
-- #   = "Controller: " + ::Rails.application.routes.recognize_path( request.fullpath )[ :controller ].to_s
-- # %p<
-- #   = "Action: " + ::Rails.application.routes.recognize_path( request.fullpath )[ :action ].to_s
-- # %p<
-- #   = "Host: " + request.host
+  - #
 
 %div{ id: :navi_dom }
-  %div{ class: :bus_icon }
+  %div{ id: :bus_icon , class: :waiting }
     %i{ class: [ :fa , 'fa-2x' , 'fa-bus'] }
-  %p{ class: :message }
-    = "バスが到着しました"
-  %div{ class: :bound_for }
-    %div{ class: :number }
-      = "205"
-    %div{ class: [:text , :text_en] }
-    %div{ class: :direction }
-      = "金閣寺方面"
-    %div{ class: :terminal }
-      = "北大路バスターミナル"
-  %div{ id: :is_vivrate }
-  %div{ class: :button }
-    = "OK"
+  %p{ id: :message, class: :waiting }
+    = "金閣寺方面行きのバスが到着したら、お知らせします"
+  %div{ class: :schedule }
+    %div{ class: :title }
+      = "次の金閣寺方面のバス（予定）"
+    %div{ class: [ :bound_for , :clearfix ]}
+      %div{ class: :number }<
+        = "205"
+      %div{ class: [:text , :text_ja , :clearfix ]}
+        %p{ class: :direction }<
+          = "金閣寺方面"
+        %p{ class: :terminal }<
+          = "北大路バスターミナル ゆき"
+      %div{ class: :time }<
+        = "12:34"
+    %p{ class: [:stop , :text_ja]}<
+      = "「金閣寺前」でおりてください"
+  %div{ class: :button }<
+    = link_to( '', url_for( controller: :application , action: :stop_vibration ) , method: :post , remote: true )
+    %p{ class: :text_en }<
+      = "OK"
+  %div{ id: :is_vibrate }<

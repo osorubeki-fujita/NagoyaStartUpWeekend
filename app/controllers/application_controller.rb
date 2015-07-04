@@ -11,14 +11,20 @@ class ApplicationController < ActionController::Base
     render 'index' , layout: 'application'
   end
 
-  def disclaimer
-    @title = "免責事項"
-    render 'disclaimer' , layout: 'application'
+  def admin
+    render 'admin' , layout: 'application'
   end
 
-  def remark
-    @title = "ご利用上の注意"
-    render 'remark' , layout: 'application'
+  def to_vibrate
+    render 'to_vibrate.json' , layout: nil
+  end
+
+  def approaching
+    ::VibrationHandler.instance.approaching!
+  end
+
+  def stop_vibration
+    ::VibrationHandler.instance.stop_vibration!
   end
 
 end

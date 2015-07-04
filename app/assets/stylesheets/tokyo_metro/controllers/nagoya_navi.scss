@@ -1,0 +1,63 @@
+@charset "utf-8" ;
+
+@import '../fundamental_settings.scss' ;
+
+#navi_dom {
+  #bus_icon , #message , .bound_for , .button {
+    text-align: center ;
+  }
+  #bus_icon {
+    @include margin_bottom_8 ;
+  }
+  #message {
+    @include margin_bottom_16 ;
+  }
+  #bus_icon , #message {
+    &.arriving {
+      color: red ;
+    }
+  }
+  .schedule {
+    border: solid 1px #999 ;
+    .title {
+      background-color: #f6f6f6 ;
+      padding: 4px ;
+    }
+    .bound_for {
+      text-align: center ;
+      padding: 4px ;
+      .number {
+        @include float_left ;
+        @include margin_right_16 ;
+      }
+      .text {
+        @include float_left ;
+        .direction , .terminal {
+          text-align: left ;
+
+        }
+      }
+      .time {
+        font-size: 16pt ;
+        .due {
+          font-size: 9pt ;
+        }
+      }
+    }
+  }
+  p.stop {
+    text-align: center ;
+  }
+  .button {
+    @extend %linkInDiv ;
+    background-color: rgba($operator_color ,0.5);
+    color: #fff ;
+    vertical-align: middle ;
+      @include margin_top_bottom_16 ;
+        @include padding_top_bottom_8 ;
+  }
+  #is_vibrate {
+    text-align: right ;
+    font-size: 9pt ;
+  }
+}

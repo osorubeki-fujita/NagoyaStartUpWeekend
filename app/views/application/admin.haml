@@ -1,0 +1,10 @@
+= render "common_content"
+
+- content_for :right_contents do
+  - #
+
+%div{ id: :navi_dom }
+  %p<
+    = link_to( 'Start', url_for( controller: :application , action: :approaching) , method: :post , remote: true )
+  %p<
+    = link_to( 'Stop', url_for( controller: :application , action: :stop_vibration ) , method: :post , remote: true )

@@ -8,6 +8,7 @@ body {
   background-color: rgba( $operator_color , 0.1 ) ;
   @include margin_left_right_16 ;
   @include margin_top_bottom_0 ;
+  max-width:480px ;
 }
 
 //-------- text
@@ -32,7 +33,7 @@ body {
 //-------- contents
 
 %mainContentSettings {
-  @include float_left ;
+  //  @include float_left ;
   height: auto ;
 }
 
@@ -61,7 +62,7 @@ body {
   //
   #main_content_center {
     // width: $width_main_content_center ;
-    min-width: 640px ;
+    // min-width: 640px ;
     @extend %mainContentSettings ;
   }
   #main_content_wide {

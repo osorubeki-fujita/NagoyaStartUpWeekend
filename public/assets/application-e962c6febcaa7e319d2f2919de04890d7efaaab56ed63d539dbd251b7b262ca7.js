@@ -25668,9 +25668,9 @@ return $.widget( "ui.tooltip", {
     };
 
     vibration = function(v) {
-      var viv;
-      viv = new Vibration();
-      viv.process();
+      var vib;
+      vib = new VibrationLoop();
+      vib.process();
     };
 
     return OnPageLoadHandler;
@@ -25719,20 +25719,20 @@ return $.widget( "ui.tooltip", {
 
 }).call(this);
 (function() {
-  var Vibration;
+  var VibrationLoop, check_vibration_setting;
 
-  Vibration = (function() {
-    var is_vibrate, set_text, vibrate;
+  VibrationLoop = (function() {
+    var is_vibrate, set_loop, set_text;
 
-    function Vibration() {}
+    function VibrationLoop() {}
 
     is_vibrate = function(v) {
       return navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
     };
 
-    Vibration.prototype.process = function() {
+    VibrationLoop.prototype.process = function() {
       set_text(this);
-      vibrate(this);
+      set_loop(this);
     };
 
     set_text = function(v) {
@@ -25745,18 +25745,36 @@ return $.widget( "ui.tooltip", {
       $('#is_vibrate').html(txt);
     };
 
-    vibrate = function(v) {
+    set_loop = function(v) {
       if (is_vibrate(v)) {
-        navigator.vibrate([2000, 1000, 2000]);
-        navigator.vibrate(0);
+        setInterval('check_vibration_setting()', 500);
       }
     };
 
-    return Vibration;
+    return VibrationLoop;
 
   })();
 
-  window.Vibration = Vibration;
+  window.VibrationLoop = VibrationLoop;
+
+  check_vibration_setting = function() {
+    var f, json_url;
+    console.log('check_vibration_setting');
+    json_url = 'http://192.168.100.109:3000/to_vibrate.json';
+    f = function(obj, c, jq_xhr) {
+      console.log(obj);
+      if (c === 'success' && obj.to_vibrate) {
+        navigator.vibrate([2000, 1000, 2000, 1000, 2000, 1000, 2000]);
+        $('#bus_icon').removeClass('waiting').addClass('arriving');
+        $('p#message').removeClass('waiting').addClass('arriving').text("バスが到着します");
+      } else {
+        navigator.vibrate(0);
+      }
+    };
+    $.getJSON(json_url, null, f);
+  };
+
+  window.check_vibration_setting = check_vibration_setting;
 
 }).call(this);
 (function() {

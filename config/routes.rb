@@ -159,6 +159,11 @@ Rails.application.routes.draw do
 
   # match ':controller/:action', via: [ :get , :post , :patch ]
 
+  post '/approaching' , to: 'application#approaching'
+  post '/stop_vibration' , to: 'application#stop_vibration'
+  get '/to_vibrate.json' , to: 'application#to_vibrate'
+  get '/admin' , to: 'application#admin'
+
   get '/index' , to: 'application#index'
   root to: 'application#index'
 end

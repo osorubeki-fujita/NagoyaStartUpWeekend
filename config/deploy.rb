@@ -1,8 +1,8 @@
 # config valid only for current version of Capistrano
 lock '3.4.0'
 
-set :application, "tokyo_metro::heroku_app" # 'tokyometro.herokuapp'
-set :repo_url, "https://github.com/osorubeki-fujita/tokyometro.herokuapp.git"
+set :application, "nagoyanavi" # 'tokyometro.herokuapp'
+set :repo_url, "https://github.com/osorubeki-fujita/navoyanavi.git"
 
 set :pj_dir , ::File.expand_path( "#{ ::File.dirname( __FILE__ ) }/.." )
 set :github_remote_name , :origin
