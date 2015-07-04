@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   include TwitterProcessor
 
   def index
-    set_twitter_processor( :tokyo_metro )
+    # set_twitter_processor( :tokyo_metro )
     # @station_infos = ::Station::Info.all.where( operator_id: ::ApplicationHelper.tokyo_metro.id )
     render 'index' , layout: 'application'
   end
