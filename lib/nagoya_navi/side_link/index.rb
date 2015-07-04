@@ -1,4 +1,4 @@
-class NagoyaNavi::SideLink::index < TokyoMetro::App::Renderer::SideMenu::Link::ToMainContent::Index
+class NagoyaNavi::SideLink::Index < TokyoMetro::App::Renderer::SideMenu::Link::ToMainContent::Index
 
   def self.set_root( request )
     self.new(
