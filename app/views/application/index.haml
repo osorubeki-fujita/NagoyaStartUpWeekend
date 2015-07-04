@@ -3,28 +3,7 @@
 - content_for :right_contents do
   - #
 
-%div{ id: :navi_dom }
-  %div{ id: :bus_icon , class: :waiting }
-    %i{ class: [ :fa , 'fa-2x' , 'fa-bus'] }
-  %p{ id: :message, class: :waiting }
-    = "金閣寺方面行きのバスが到着したら、お知らせします"
-  %div{ class: :schedule }
-    %div{ class: :title }
-      = "次の金閣寺方面のバス（予定）"
-    %div{ class: [ :bound_for , :clearfix ]}
-      %div{ class: :number }<
-        = "205"
-      %div{ class: [:text , :text_ja , :clearfix ]}
-        %p{ class: :direction }<
-          = "金閣寺方面"
-        %p{ class: :terminal }<
-          = "北大路バスターミナル ゆき"
-      %div{ class: :time }<
-        = "12:34"
-    %p{ class: [:stop , :text_ja]}<
-      = "「金閣寺前」でおりてください"
-  %div{ class: :button }<
-    = link_to( '', url_for( controller: :application , action: :stop_vibration ) , method: :post , remote: true )
-    %p{ class: :text_en }<
-      = "OK"
-  %div{ id: :is_vibrate }<
+%div{ id: :links }
+  - [ :kyoto , :nagoya , :tokyo_metro , :jr_east ].each do | city |
+    %p{ class: :city }
+      = link_to( city.to_s.gsub( /_/ , "" ).capitalize , url_for( controller: city , action: :index ) )

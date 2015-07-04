@@ -5,10 +5,22 @@
 
 body {
   border-collapse: collapse ;
-  background-color: rgba( $operator_color , 0.1 ) ;
   @include margin_left_right_16 ;
   @include margin_top_bottom_0 ;
   max-width:480px ;
+}
+
+body#kyoto , body#index {
+  background-color: rgba( $kyoto_color , 0.1 ) ;
+}
+body#nagoya{
+  background-color: rgba( $nagoya_color , 0.1 ) ;
+}
+body#tokyo_metro {
+  background-color: rgba( $tokyo_metro_color , 0.1 ) ;
+}
+body#jr_east {
+  background-color: rgba( $jr_east_color , 0.1 ) ;
 }
 
 //-------- text

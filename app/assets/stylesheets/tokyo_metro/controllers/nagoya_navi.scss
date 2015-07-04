@@ -26,7 +26,7 @@
     .bound_for {
       text-align: center ;
       padding: 4px ;
-      .number {
+      .code {
         @include float_left ;
         @include margin_right_16 ;
       }
@@ -50,7 +50,6 @@
   }
   .button {
     @extend %linkInDiv ;
-    background-color: rgba($operator_color ,0.5);
     color: #fff ;
     vertical-align: middle ;
       @include margin_top_bottom_16 ;
@@ -59,5 +58,35 @@
   #is_vibrate {
     text-align: right ;
     font-size: 9pt ;
+  }
+}
+
+#navi_dom {
+  &.kyoto {
+    .schedule {
+      .code {
+        @include border_radius(4px) ;
+        @include padding_8 ;
+        background-color: yellow ;
+      }
+    }
+    .button {
+      background-color: rgba($kyoto_color ,0.5);
+    }
+  }
+  &.nagoya {
+    .button {
+      background-color: rgba($nagoya_color ,0.5);
+    }
+  }
+  &.tokyo_metro {
+    .button {
+      background-color: rgba($tokyo_metro_color ,0.5);
+    }
+  }
+  &.jr_east {
+    .button {
+      background-color: rgba($jr_east_color ,0.5);
+    }
   }
 }

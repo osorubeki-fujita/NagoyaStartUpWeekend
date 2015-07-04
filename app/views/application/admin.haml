@@ -1,10 +1,10 @@
-= render "common_content"
+= render "application/common_content"
 
 - content_for :right_contents do
   - #
 
-%div{ id: :navi_dom }
+%div{ id: :navi_dom , class: @controller }
   %p<
-    = link_to( 'Start', url_for( controller: :application , action: :approaching) , method: :post , remote: true )
+    = link_to( 'Start', url_for( controller: @controller , action: :approaching) , method: :post , remote: true )
   %p<
-    = link_to( 'Stop', url_for( controller: :application , action: :stop_vibration ) , method: :post , remote: true )
+    = link_to( 'Stop', url_for( controller: @controller , action: :stop_vibration ) , method: :post , remote: true )

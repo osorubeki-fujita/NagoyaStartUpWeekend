@@ -56,26 +56,37 @@ Rails.application.routes.draw do
 
   # resources :others, controller: :application
 
-  #-------- Tokyo
+  #-------- Tokyo Metro
 
-  post 'tokyo/approaching' , to: 'tokyo#approaching'
-  post 'tokyo/stop_vibration' , to: 'tokyo#stop_vibration'
-  get 'tokyo/to_vibrate.json' , to: 'tokyo#to_vibrate'
-  get 'tokyo/admin' , to: 'tokyo#admin'
+  get 'tokyo_metro(/index)' , to: 'tokyo_metro#index'
+  get 'tokyo_metro/admin' , to: 'tokyo_metro#admin'
+  get 'tokyo_metro/to_vibrate.json' , to: 'tokyo_metro#to_vibrate'
+  post 'tokyo_metro/approaching' , to: 'tokyo_metro#approaching'
+  post 'tokyo_metro/stop_vibration' , to: 'tokyo_metro#stop_vibration'
+
+  #-------- JR East
+
+  get 'jr_east(/index)' , to: 'jr_east#index'
+  get 'jr_east/admin' , to: 'jr_east#admin'
+  get 'jr_east/to_vibrate.json' , to: 'jr_east#to_vibrate'
+  post 'jr_east/approaching' , to: 'jr_east#approaching'
+  post 'jr_east/stop_vibration' , to: 'jr_east#stop_vibration'
 
   #-------- Nagoya
 
+  get 'nagoya(/index)' , to: 'nagoya#index'
+  get 'nagoya/admin' , to: 'nagoya#admin'
+  get 'nagoya/to_vibrate.json' , to: 'nagoya#to_vibrate'
   post 'nagoya/approaching' , to: 'nagoya#approaching'
   post 'nagoya/stop_vibration' , to: 'nagoya#stop_vibration'
-  get 'nagoya/to_vibrate.json' , to: 'nagoya#to_vibrate'
-  get 'nagoya/admin' , to: 'nagoya#admin'
 
   #-------- Kyoto
 
+  get 'kyoto(/index)' , to: 'kyoto#index'
+  get 'kyoto/admin' , to: 'kyoto#admin'
+  get 'kyoto/to_vibrate.json' , to: 'kyoto#to_vibrate'
   post 'kyoto/approaching' , to: 'kyoto#approaching'
   post 'kyoto/stop_vibration' , to: 'kyoto#stop_vibration'
-  get 'kyoto/to_vibrate.json' , to: 'kyoto#to_vibrate'
-  get 'kyoto/admin' , to: 'kyoto#admin'
 
   # match ':controller/:action', via: [ :get , :post , :patch ]
 

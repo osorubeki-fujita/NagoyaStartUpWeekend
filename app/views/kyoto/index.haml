@@ -1,0 +1,19 @@
+= render "application/common_content"
+
+- content_for :right_contents do
+  - #
+
+:ruby
+  h = {
+    controller: :kyoto  ,
+    icon_basename: :bus ,
+    message_while_waiting: "金閣寺方面行きのバス" ,
+    schedule_title: "次の金閣寺方面のバス" ,
+    code: 205 ,
+    direction: "金閣寺" ,
+    terminal: "北大路バスターミナル" ,
+    time: "12:34" ,
+    stop: "「金閣寺道」でおりてください"
+  }
+
+= alert_normal_content(h)

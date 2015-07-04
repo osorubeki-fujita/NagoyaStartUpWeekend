@@ -27,17 +27,45 @@ window.VibrationLoop = VibrationLoop
 
 check_vibration_setting = () ->
   # console.log 'check_vibration_setting'
-  json_url = '/to_vibrate.json'
+  json_url = "/#{ $( '#navi_dom' ).attr( 'class').split(/ /)[0] }/to_vibrate.json"
   f = ( obj ,c , jq_xhr) ->
     # console.log obj
     if c is 'success' and obj.to_vibrate
-      navigator.vibrate([2000,1000,2000,1000,2000,1000,2000])
-      $('#bus_icon').removeClass( 'waiting' ).addClass( 'arriving' )
-      $('p#message').removeClass( 'waiting' ).addClass( 'arriving' ).text( "バスが到着します" )
+      vib = new VibrationHandlerJs()
+      vib.set()
     else
       navigator.vibrate(0)
     return
   $.getJSON( json_url , null , f )
   return
 
+
 window.check_vibration_setting = check_vibration_setting
+
+
+class VibrationHandlerJs
+
+  contructor: ->
+
+  icon_dom = (v) ->
+    return $('#bus_icon , #subway_icon , #train_icon')
+
+  transporation_type = (v) ->
+    if $( '#navi_dom.bus').length > 0
+      t = "バス"
+    if $( '#navi_dom.subway , #navi_dom.train').length > 0
+      t = "列車"
+    return t
+
+  set: ->
+    change_icon_dom_attr(@)
+    change_message(@)
+    navigator.vibrate([2000,1000,2000,1000,2000,1000,2000])
+
+  change_icon_dom_attr = (v) ->
+    icon_dom(v).removeClass( 'waiting' ).addClass( 'arriving' )
+    return
+
+  change_message = (v) ->
+    $('p#message').removeClass( 'waiting' ).addClass( 'arriving' ).text( "#{ transporation_type(@) }が到着します" )
+    return
