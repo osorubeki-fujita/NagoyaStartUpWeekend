@@ -1,7 +1,7 @@
 = render "common_content"
 
 - content_for :right_contents do
-  = @twitter_processor.render
+  - # = @twitter_processor.render
 
 - # = ::TokyoMetro::App::Renderer::Concerns::Header::Title.new( request , ::ApplicationHelper.common_title_ja , ::ApplicationHelper.common_title_en , domain_id_name: :top_title ).render
 
@@ -11,3 +11,19 @@
 - #   = "Action: " + ::Rails.application.routes.recognize_path( request.fullpath )[ :action ].to_s
 - # %p<
 - #   = "Host: " + request.host
+
+%div{ id: :navi_dom }
+  %div{ class: :bus_icon }
+    %i{ class: [ :fa , 'fa-2x' , 'fa-bus'] }
+  %p{ class: :message }
+    = "バスが到着しました"
+  %div{ class: :bound_for }
+    %div{ class: :number }
+      = "205"
+    %div{ class: [:text , :text_en] }
+    %div{ class: :direction }
+      = "金閣寺方面"
+    %div{ class: :terminal }
+      = "北大路バスターミナル"
+  %div{ class: :button }
+    = "OK"
