@@ -26,10 +26,10 @@ class VibrationLoop
 window.VibrationLoop = VibrationLoop
 
 check_vibration_setting = () ->
-  console.log 'check_vibration_setting'
+  # console.log 'check_vibration_setting'
   json_url = '/to_vibrate.json'
   f = ( obj ,c , jq_xhr) ->
-    console.log obj
+    # console.log obj
     if c is 'success' and obj.to_vibrate
       navigator.vibrate([2000,1000,2000,1000,2000,1000,2000])
       $('#bus_icon').removeClass( 'waiting' ).addClass( 'arriving' )

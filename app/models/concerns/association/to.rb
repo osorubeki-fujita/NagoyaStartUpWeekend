@@ -1,2 +1,0 @@
-module Association::To
-end
