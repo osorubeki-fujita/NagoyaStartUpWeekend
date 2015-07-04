@@ -7,8 +7,8 @@ class OnPageLoadHandler
     #---- main_content_center
     main_content_center = new MainContentCenter()
     main_content_wide = new MainContentWide()
-    ary.push( main_content_center )
-    ary.push( main_content_wide )
+    # ary.push( main_content_center )
+    # ary.push( main_content_wide )
 
     #---- header
 
@@ -82,9 +82,10 @@ class OnPageLoadHandler
     return ary
 
   process_on_page_load: ->
-    process_normal_list(@)
-    set_geo_location_info(@)
-    initialize_google_maps_in_station_facility(@)
+    # process_normal_list(@)
+    # set_geo_location_info(@)
+    # initialize_google_maps_in_station_facility(@)
+    vivration(@)
     return
 
   process_on_resize: ->
@@ -105,6 +106,11 @@ class OnPageLoadHandler
   initialize_google_maps_in_station_facility = (v) ->
     map = new GoogleMapsInStationFacility()
     map.initialize_map()
+    return
+
+  vivration = (v) ->
+    viv = new Vivration()
+    viv.process()
     return
 
 
