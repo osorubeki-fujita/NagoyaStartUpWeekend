@@ -3,17 +3,17 @@ module ApplicationHelper
   def self.tokyo_metro
     ::Operator.find_by_same_as( "odpt.Operator:TokyoMetro" )
   end
-  
+
   def self.this_operator
     tokyo_metro
   end
 
   def self.common_title_ja
-    "Rails on Ruby"
+    "感じる（はぁと）ナビゲーション"
   end
 
   def self.common_title_en
-    "Since Tokyo Metro Open Data Contest 2014"
+    "Startup Weekend Nagoya"
   end
 
   def self.time_strf( h , m )

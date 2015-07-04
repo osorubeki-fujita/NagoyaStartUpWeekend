@@ -4,9 +4,12 @@
     %div{ class: [ :top_title , :clearfix ] }<>
       %div{ class: :main }<
         = link_to_unless_current( "" , url_for( controller: :application , action: :index ) )
-        != ::ApplicationHelper.common_title_ja
+        = "感じる"
+        != content_tag( 'i' , '' , class: [ :fa , 'fa-heartbeat' , 'fa-2x' ] )
+        != "ナビゲーション"
+        - # != ::ApplicationHelper.common_title_ja
         %span{ class: :version }<
-          = "Beta Version"
+          = "Demonstrate Version"
       %div{ class: :sub }<
         = ::ApplicationHelper.common_title_en
     %div{ class: :developer }
@@ -27,6 +30,6 @@
 - content_for :side_menu do
 
   %div{ id: :left_contents , class: "col-md-3"}
-    = ::TokyoMetro::App::Renderer::SideMenu::NowDeveloping.new( request ).render
-    = ::TokyoMetro::App::Renderer::SideMenu::Problems.new( request ).render
-    = ::TokyoMetro::App::Renderer::SideMenu.render_all( request )
+    - # = ::TokyoMetro::App::Renderer::SideMenu::NowDeveloping.new( request ).render
+    - # = ::TokyoMetro::App::Renderer::SideMenu::Problems.new( request ).render
+    - # = ::TokyoMetro::App::Renderer::SideMenu.render_all( request )
