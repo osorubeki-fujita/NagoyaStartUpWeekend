@@ -65,7 +65,7 @@ Rails.application.routes.draw do
   post 'tokyo_metro/stop_vibration' , to: 'tokyo_metro#stop_vibration'
 
   get 'tokyo_metro/to_vibrate.json' , to: 'tokyo_metro#to_vibrate'
-  get 'tokyo_metro/now_vibrating.json' , to: 'tokyo_metro#now_vibrating'
+  post 'tokyo_metro/now_vibrating' , to: 'tokyo_metro#now_vibrating'
 
   #-------- JR East
 
@@ -76,7 +76,7 @@ Rails.application.routes.draw do
   post 'jr_east/stop_vibration' , to: 'jr_east#stop_vibration'
 
   get 'jr_east/to_vibrate.json' , to: 'jr_east#to_vibrate'
-  get 'jr_east/now_vibrating.json' , to: 'jr_east#now_vibrating'
+  post 'jr_east/now_vibrating' , to: 'jr_east#now_vibrating'
 
   #-------- Nagoya
 
@@ -87,7 +87,7 @@ Rails.application.routes.draw do
   post 'nagoya/stop_vibration' , to: 'nagoya#stop_vibration'
 
   get 'nagoya/to_vibrate.json' , to: 'nagoya#to_vibrate'
-  get 'nagoya/now_vibrating.json' , to: 'nagoya#now_vibrating'
+  post 'nagoya/now_vibrating' , to: 'nagoya#now_vibrating'
 
   #-------- Kyoto
 
@@ -98,7 +98,7 @@ Rails.application.routes.draw do
   post 'kyoto/stop_vibration' , to: 'kyoto#stop_vibration'
 
   get 'kyoto/to_vibrate.json' , to: 'kyoto#to_vibrate'
-  get 'kyoto/now_vibrating.json' , to: 'kyoto#now_vibrating'
+  post 'kyoto/now_vibrating' , to: 'kyoto#now_vibrating'
 
   # match ':controller/:action', via: [ :get , :post , :patch ]
 

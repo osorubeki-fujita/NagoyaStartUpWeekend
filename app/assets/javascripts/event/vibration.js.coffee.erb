@@ -28,14 +28,14 @@ window.VibrationLoop = VibrationLoop
 check_vibration_setting = () ->
   # console.log 'check_vibration_setting'
   json_url_to_check_vibration_setting = "/#{ $( '#navi_dom' ).attr( 'class').split(/ /)[0] }/to_vibrate.json"
-  json_url_to_set_now_vibrating = "/#{ $( '#navi_dom' ).attr( 'class').split(/ /)[0] }/now_vibrating.json"
+  json_url_to_set_now_vibrating = "/#{ $( '#navi_dom' ).attr( 'class').split(/ /)[0] }/now_vibrating"
   f = ( obj ,c , jq_xhr) ->
     # console.log obj
     if c is 'success' and obj.to_vibrate
       unless obj.now_vibrating
         vib = new VibrationHandlerJs()
         vib.set()
-        $.postJSON( json_url_to_set_now_vibrating , null , null )
+        # $.post( json_url_to_set_now_vibrating , null , null ,null)
       else
         navigaor.vibrate(0)
   $.getJSON( json_url_to_check_vibration_setting , null , f )
