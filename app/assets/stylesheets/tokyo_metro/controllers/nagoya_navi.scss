@@ -3,16 +3,16 @@
 @import '../fundamental_settings.scss' ;
 
 #navi_dom {
-  #bus_icon , #message , .bound_for , .button {
+  .bus_train_icon , #message , .bound_for , .button {
     text-align: center ;
   }
-  #bus_icon {
+  .bus_train_icon {
     @include margin_bottom_8 ;
   }
   #message {
     @include margin_bottom_16 ;
   }
-  #bus_icon , #message {
+  .bus_train_icon , #message {
     &.arriving {
       color: red ;
     }
@@ -25,14 +25,15 @@
     }
     .bound_for {
       text-align: center ;
-      padding: 4px ;
+        @include padding_8 ;
+      @include margin_bottom_16 ;
       .code {
         @include float_left ;
         @include margin_right_16 ;
       }
       .text {
         @include float_left ;
-        .direction , .terminal {
+        .direction , .train_type , .terminal {
           text-align: left ;
 
         }
@@ -45,8 +46,13 @@
       }
     }
   }
-  p.stop {
-    text-align: center ;
+  .stop_infos {
+    @include padding_8 ;
+    p.stop_info {
+      text-align: left ;
+    }
+
+
   }
   .button {
     @extend %linkInDiv ;

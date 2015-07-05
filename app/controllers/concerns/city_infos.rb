@@ -16,13 +16,15 @@ module CityInfos
   end
 
   def approaching
-    set_controller
     ::VibrationHandler.instance.approaching!
   end
 
   def stop_vibration
-    set_controller
     ::VibrationHandler.instance.stop_vibration!
+  end
+
+  def now_vibrating
+    ::VibrationHandler.instance.now_vibrating!
   end
 
   private

@@ -1,0 +1,19 @@
+= render "application/common_content"
+
+:ruby
+  h = {
+    controller: @controller  ,
+    icon_basename: :subway ,
+    message_while_waiting: "氷川台へ行くための列車" ,
+    schedule_title: "次の列車" ,
+    code: "副都心線" ,
+    train_type: "急行" ,
+    terminal: "飯能" ,
+    time: "12:34" ,
+    stop_info: [
+      "この列車は氷川台にはとまりません。" ,
+      "この列車に乗車し、「小竹向原」でおりて、各駅停車 和光市 行きに乗り換えてください。"
+    ]
+  }
+
+= alert_normal_content(h)

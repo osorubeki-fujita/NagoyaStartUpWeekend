@@ -1,0 +1,19 @@
+= render "application/common_content"
+
+:ruby
+  h = {
+    controller: @controller  ,
+    icon_basename: :subway ,
+    message_while_waiting: "中浦和へ行くための列車" ,
+    schedule_title: "次の列車" ,
+    code: "埼京線" ,
+    train_type: "快速" ,
+    terminal: "川越" ,
+    time: "12:34" ,
+    stop_info:  [
+      "この列車は中浦和にはとまりません。" ,
+      "この列車に乗車し、「武蔵浦和」でおりて、各駅停車 大宮 行きに乗り換えてください。"
+    ]
+  }
+
+= alert_normal_content(h)

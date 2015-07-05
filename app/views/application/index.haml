@@ -6,4 +6,4 @@
 %div{ id: :links }
   - [ :kyoto , :nagoya , :tokyo_metro , :jr_east ].each do | city |
     %p{ class: :city }
-      = link_to( city.to_s.gsub( /_/ , "" ).capitalize , url_for( controller: city , action: :index ) )
+      = link_to( city.to_s.gsub( /_/ , " " ).capitalize , url_for( controller: city , action: :index ) )

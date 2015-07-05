@@ -27,16 +27,18 @@ window.VibrationLoop = VibrationLoop
 
 check_vibration_setting = () ->
   # console.log 'check_vibration_setting'
-  json_url = "/#{ $( '#navi_dom' ).attr( 'class').split(/ /)[0] }/to_vibrate.json"
+  json_url_to_check_vibration_setting = "/#{ $( '#navi_dom' ).attr( 'class').split(/ /)[0] }/to_vibrate.json"
+  json_url_to_set_now_vibrating = "/#{ $( '#navi_dom' ).attr( 'class').split(/ /)[0] }/now_vibrating.json"
   f = ( obj ,c , jq_xhr) ->
     # console.log obj
     if c is 'success' and obj.to_vibrate
-      vib = new VibrationHandlerJs()
-      vib.set()
-    else
-      navigator.vibrate(0)
-    return
-  $.getJSON( json_url , null , f )
+      unless obj.now_vibrating
+        vib = new VibrationHandlerJs()
+        vib.set()
+        $.postJSON( json_url_to_set_now_vibrating , null , null )
+      else
+        navigaor.vibrate(0)
+  $.getJSON( json_url_to_check_vibration_setting , null , f )
   return
 
 
@@ -60,7 +62,7 @@ class VibrationHandlerJs
   set: ->
     change_icon_dom_attr(@)
     change_message(@)
-    navigator.vibrate([2000,1000,2000,1000,2000,1000,2000])
+    navigator.vibrate([5000,2000])
 
   change_icon_dom_attr = (v) ->
     icon_dom(v).removeClass( 'waiting' ).addClass( 'arriving' )
@@ -68,4 +70,5 @@ class VibrationHandlerJs
 
   change_message = (v) ->
     $('p#message').removeClass( 'waiting' ).addClass( 'arriving' ).text( "#{ transporation_type(@) }が到着します" )
+    $( '#navi_dom').children('.schedule').children('.title').text( "ただいま到着の#{ transporation_type(@) }")
     return

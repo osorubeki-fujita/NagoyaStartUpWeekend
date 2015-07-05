@@ -1,0 +1,20 @@
+= render "application/common_content"
+
+:ruby
+  h = {
+    controller: @controller  ,
+    icon_basename: :subway ,
+    message_while_waiting: "名古屋港へ行くための列車" ,
+    schedule_title: "次の名古屋港方面の列車" ,
+    code: "名城線" ,
+    direction: "上前津、金山" ,
+    terminal: "名城線右回り" ,
+    terminal_with_suffix: false ,
+    time: "12:34" ,
+    stop_info: [
+      "この列車は名古屋港へ行きません。" ,
+      "この列車に乗車し、「金山」でおりて、名古屋港 行きに乗り換えてください。"
+    ]
+  }
+
+= alert_normal_content(h)
